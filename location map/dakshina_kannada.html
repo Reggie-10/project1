@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Location of Hospitals in Mangaluru</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+	p{
+	font-family:"Times New Roman", Times, serif;
+	font-size:20px;
+	color:#FFFFFF;
+	text-align:center;
+	}
+	h2{font-style:italic;
+	font-size:36px;
+	
+	color:#FFFF99;
+	text-align:center;
+	}
+    </style>
+        <style>
+h1{
+font-size:50px;
+text-align:center;
+padding-top:60px;
+}
+
+
+body {margin:0;
+padding:0;
+font-family:"Bahnschrift Light", "Bernard MT Condensed", "Berlin Sans FB Demi", "Bell MT";
+width:100%;
+height:100vh;
+background-color:#333333;
+}
+</style>
+  </head>
+  <body>
+    <h1  class="text-white"id="top" style="background-color:#666666" >Hospitals Name</h1>
+  <section>
+    <ul  class="list-group text-center text-capitalize "  style="font-size:32px">
+     
+      <li><a href="#section1">G R Medical College and Research Centre,Mangaluru</a></li>
+      <li><a href="#section2">A.J. Hospital & Research Centre,Mangaluru</a></li>
+      <li><a href="#section3">Justice K.S Hegde Charitable hospital,Mangaluru</a></li>
+      <li><a href="#section4">KMC Hospital Mangaluru</a></li>
+      <li><a href="#section5">Father Muller Hospital,Mangaluru</a></li>
+    </ul>
+
+  </section>
+
+  <section id="section1">
+    <h2>G R Medical College and Research Centre,Mangaluru</h2>
+    <p>Address: VWVF+HX8, Neermarga Proper, Bondathila, Karnataka 575029<br>
+Hours: Open 24 hours<br>
+Phone: 0824-2986375
+</section>
+
+  <section id="section2">
+    <h2>A.J. Hospital & Research Centre,Mangaluru</h2>
+    <p>Address:  NH 66, Kuntikana, Mangaluru, Karnataka 575004<BR>
+Hours: Open 24 hours<BR>
+Phone: 0824 222 5533<BR></p></section>
+  <section id="section3">
+    <h2>Justice K.S Hegde Charitable hospital,Mangaluru</h2>
+    <p>Address: Deralakatte, Mangaluru, Karnataka 575018<BR>
+Hours: Open 24 hours<BR>
+Phone: 089710 10000<BR></p>
+  </section>
+  <section id="section4">
+    <h2>KMC Hospital Mangaluru</h2>
+    <p>Address: Dr.B, R.Ambedkar Circle, Hampankatta, Mangaluru, Karnataka 575001<br>
+Hours: Open 24 hours<br>
+Phone: 1800 102 4647<br></p>
+  </section>
+  <section id="section5">
+    <h2>Father Muller Hospital,Mangaluru</h2>
+    <p>
+Address: VV86+RMC, Kankanady Old Rd, Kankanady, Mangaluru, Karnataka 575002<br>
+Hours: Open 24 hours<br>
+Phone: 0824 223 8000<br>
+  </section>
+    </div>
+<div class="container ">
+<ul class="pager font-weight-bold text-monospace">
+    <li class="center "><a href="#top">Back to Top</a></li>
+   <li class="center "><a href="../index.php">Back To Home Page</a></li>
+</ul></div>
+    <h2  >You can view location in google map</h2>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat:23.746465, lng: 90.376013}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels =['Ibn sina hospital , Dhanmondi','Bangladesh Medical College Hospital, Dhaka','Square Hospital dhaka','Dhaka Shishu Hospital','BIRDEM General Hospital, Dhaka','Labaid Specialized Hospital Kalabagan','Apollo Hospitals Dhaka','Popular Diagnostic Center','Central Hospital Ltd','National Institute of Kidney Diseases & Urology','Samorita Hospital','Japan Bangladesh Friendship Hospital','Dhaka Eye Hospital','Shaheed Suhrawardy Medical College Hospital','Holy Family Red Crescent Medical College ','Bangladesh Eye Hospital and Institute'];
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: 23.751362, lng: 90.368856},
+        {lat: 23.750306, lng:  90.369895},
+        {lat:23.752798, lng: 90.381718},
+        {lat:23.773209, lng: 90.371424},
+        {lat: 23.739368, lng: 90.396546},
+        {lat: 23.741953, lng: 90.382825},
+        {lat: 23.809907, lng: 90.431058},
+        {lat:23.771841, lng: 90.367409},
+        {lat: 23.743433, lng: 90.384084},
+        {lat:23.771492, lng: 90.368780},
+        {lat:23.752628, lng: 90.385194},
+        {lat:23.739514, lng: 90.375172},
+        {lat:23.867710, lng:90.396110},
+        {lat:23.769215, lng:90.371362},
+        {lat:23.746698, lng:90.403114},
+        {lat:23.751655, lng:90.367371},
+        {lat: 23.741953, lng: 90.382825}
+      ]
+
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=">
+    </script>
+  </body>
+</html>
